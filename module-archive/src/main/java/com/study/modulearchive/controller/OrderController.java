@@ -1,17 +1,11 @@
 package com.study.modulearchive.controller;
 
 import com.study.modulearchive.controller.dto.OrdersResponse;
-import com.study.modulearchive.domain.Member;
 import com.study.modulearchive.domain.Order;
-import com.study.modulearchive.domain.item.Item;
 import com.study.modulearchive.repository.OrderSearch;
-import com.study.modulearchive.service.ItemService;
-import com.study.modulearchive.service.MemberService;
 import com.study.modulearchive.service.OrderService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,13 +15,11 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService orderService;
-    private final MemberService memberService;
-    private final ItemService itemService;
 
     @PostMapping("/order")
     public ResponseEntity order(@RequestParam("memberId") Long memberId,
-                        @RequestParam("itemId") Long itemId,
-                        @RequestParam("count") int count) {
+                                @RequestParam("itemId") Long itemId,
+                                @RequestParam("count") int count) {
 
         Long order = orderService.order(memberId, itemId, count);
         return ResponseEntity.ok(order);
