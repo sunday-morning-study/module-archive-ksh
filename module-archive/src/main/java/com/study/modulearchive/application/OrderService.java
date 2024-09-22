@@ -3,7 +3,7 @@ package com.study.modulearchive.application;
 import com.study.modulearchive.adapter.out.persistence.MemberRepository;
 import com.study.modulearchive.domain.*;
 import com.study.modulearchive.domain.item.Item;
-import com.study.modulearchive.repository.ItemRepository;
+import com.study.modulearchive.adapter.out.persistence.ItemRepository;
 import com.study.modulearchive.repository.OrderRepository;
 import com.study.modulearchive.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.study.modulearchive.adapter.in.web;
 
-import com.study.modulearchive.application.dto.MemberDto;
+import com.study.modulearchive.adapter.in.web.dto.MemberDto;
 import com.study.modulearchive.application.in.GetMemberUseCase;
 import com.study.modulearchive.application.in.JoinMemberUseCase;
 import com.study.modulearchive.domain.Address;

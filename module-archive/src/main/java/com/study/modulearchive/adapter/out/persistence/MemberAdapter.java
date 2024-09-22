@@ -4,7 +4,6 @@ import com.study.modulearchive.application.out.FindMemberPort;
 import com.study.modulearchive.application.out.SaveMemberPort;
 import com.study.modulearchive.domain.Member;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

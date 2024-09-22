@@ -1,7 +1,11 @@
 package com.study.modulearchive.application;
 
+import com.study.modulearchive.application.in.CreateItemUseCase;
+import com.study.modulearchive.application.in.GetItemUseCase;
+import com.study.modulearchive.application.in.UpdateItemUseCase;
+import com.study.modulearchive.application.out.FIndItemPort;
+import com.study.modulearchive.application.out.SaveItemPort;
 import com.study.modulearchive.domain.item.Item;
-import com.study.modulearchive.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,29 +15,35 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public class ItemService {
+public class ItemService implements CreateItemUseCase, GetItemUseCase, UpdateItemUseCase {
 
-    private final ItemRepository itemRepository;
+    private final FIndItemPort fIndItemPort;
+    private final SaveItemPort saveItemPort;
+
 
     @Transactional
+    @Override
     public void saveItem(Item item) {
-        itemRepository.save(item);
+        saveItemPort.save(item);
     }
 
     @Transactional
+    @Override
     public void updateItem(Long itemId, String name, int price, int stockQuantity) {
-        Item item = itemRepository.findOne(itemId);
+        Item item = fIndItemPort.findOne(itemId);
         item.setName(name);
         item.setPrice(price);
         item.setStockQuantity(stockQuantity);
     }
 
+    @Override
     public List<Item> findItems() {
-        return itemRepository.findAll();
+        return fIndItemPort.findAll();
     }
 
+    @Override
     public Item findOne(Long itemId) {
-        return itemRepository.findOne(itemId);
+        return fIndItemPort.findOne(itemId);
     }
 
 }
