@@ -1,4 +1,4 @@
-package com.study.modulearchive.controller;
+package com.study.modulearchive.adapter.in.web;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

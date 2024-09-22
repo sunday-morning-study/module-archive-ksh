@@ -1,4 +1,4 @@
-package com.study.modulearchive.controller;
+package com.study.modulearchive.adapter.in.web;
 
 import lombok.Getter;
 import lombok.Setter;

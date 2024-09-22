@@ -1,8 +1,10 @@
-package com.study.modulearchive.controller;
+package com.study.modulearchive.adapter.in.web;
 
+import com.study.modulearchive.application.dto.MemberDto;
+import com.study.modulearchive.application.in.GetMemberUseCase;
+import com.study.modulearchive.application.in.JoinMemberUseCase;
 import com.study.modulearchive.domain.Address;
 import com.study.modulearchive.domain.Member;
-import com.study.modulearchive.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private final MemberService memberService;
+    private final GetMemberUseCase getMemberUseCase;
+    private final JoinMemberUseCase joinMemberUseCase;
 
     @GetMapping("/members/new")
     public String createForm(Model model) {
@@ -27,7 +30,6 @@ public class MemberController {
 
     @PostMapping("/members/new")
     public String create(@Valid MemberForm form, BindingResult result) {
-
         if (result.hasErrors()) {
             return "members/createMemberForm";
         }
@@ -38,13 +40,21 @@ public class MemberController {
         member.setName(form.getName());
         member.setAddress(address);
 
-        memberService.join(member);
+        joinMemberUseCase.join(member);
+        return "redirect:/";
+    }
+
+    @PostMapping("/members/join")
+    public String join(@Valid MemberDto memberDto) {
+        Member member = new Member();
+        member.setName(memberDto.name());
+        joinMemberUseCase.join(member);
         return "redirect:/";
     }
 
     @GetMapping("/members")
     public String list(Model model) {
-        List<Member> members = memberService.findMembers();
+        List<Member> members = getMemberUseCase.findMembers();
         model.addAttribute("members", members);
         return "members/memberList";
     }

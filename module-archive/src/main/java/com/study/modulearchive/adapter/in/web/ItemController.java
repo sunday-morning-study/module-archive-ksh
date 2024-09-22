@@ -1,8 +1,8 @@
-package com.study.modulearchive.controller;
+package com.study.modulearchive.adapter.in.web;
 
 import com.study.modulearchive.domain.item.Book;
 import com.study.modulearchive.domain.item.Item;
-import com.study.modulearchive.service.ItemService;
+import com.study.modulearchive.application.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

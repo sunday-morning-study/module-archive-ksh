@@ -1,4 +1,4 @@
-package com.study.modulearchive.service;
+package com.study.modulearchive.application;
 
 import com.study.modulearchive.domain.item.Item;
 import com.study.modulearchive.repository.ItemRepository;
