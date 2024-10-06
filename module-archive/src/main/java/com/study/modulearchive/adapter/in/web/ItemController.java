@@ -5,7 +5,6 @@ import com.study.modulearchive.application.in.GetItemUseCase;
 import com.study.modulearchive.application.in.UpdateItemUseCase;
 import com.study.modulearchive.domain.item.Book;
 import com.study.modulearchive.domain.item.Item;
-import com.study.modulearchive.application.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

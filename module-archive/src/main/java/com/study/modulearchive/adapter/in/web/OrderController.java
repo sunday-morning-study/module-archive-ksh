@@ -27,7 +27,6 @@ public class OrderController {
     @GetMapping("/orders")
     public ResponseEntity orderList(@RequestBody OrderSearch orderSearch) {
         List<Order> orders = orderService.findOrders(orderSearch);
-
         return ResponseEntity.ok(orders);
     }
 
