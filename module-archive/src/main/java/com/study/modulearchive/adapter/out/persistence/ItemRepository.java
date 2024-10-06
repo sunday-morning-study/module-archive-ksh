@@ -1,4 +1,4 @@
-package com.study.modulearchive.repository;
+package com.study.modulearchive.adapter.out.persistence;
 
 import com.study.modulearchive.domain.item.Item;
 import jakarta.persistence.EntityManager;

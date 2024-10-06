@@ -1,9 +1,8 @@
-package com.study.modulearchive.controller;
+package com.study.modulearchive.adapter.in.web;
 
-import com.study.modulearchive.controller.dto.OrdersResponse;
 import com.study.modulearchive.domain.Order;
 import com.study.modulearchive.repository.OrderSearch;
-import com.study.modulearchive.service.OrderService;
+import com.study.modulearchive.application.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,8 +27,7 @@ public class OrderController {
     @GetMapping("/orders")
     public ResponseEntity orderList(@RequestBody OrderSearch orderSearch) {
         List<Order> orders = orderService.findOrders(orderSearch);
-
-        return ResponseEntity.ok(OrdersResponse.of(orders));
+        return ResponseEntity.ok(orders);
     }
 
     @PostMapping("/orders/{orderId}/cancel")
@@ -37,4 +35,5 @@ public class OrderController {
         orderService.cancelOrder(orderId);
         return "redirect:/orders";
     }
+
 }
